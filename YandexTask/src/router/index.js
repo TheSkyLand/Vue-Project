@@ -21,7 +21,13 @@ const router = createRouter({
       path: '/joskii',
       name: 'joskii',
       component: () => import('../views/JoskiiView.vue')
+    },
+    {
+      path: '/zadacha',
+      name: 'zadacha',
+      component: () => import('../views/ZadachaViwe.vue')
     }
+
   ]
 })
 
