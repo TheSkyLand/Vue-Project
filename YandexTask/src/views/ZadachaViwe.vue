@@ -1,33 +1,24 @@
 <script setup>
-import LeapYear from '@/components/LeapYear.vue';
-let year = 0;
+import { ref } from 'vue';
 
-
-let YearState = " "
+let year = ref(0);
+let YearState = ref("");
 const Play = () => {
-if ((year % 400) == 0) 
-{
-    YearState = "Leap Year";
-}
-else if ((year % 100) === 0) {
-    YearState = "Not a Leap Year";
-} 
-else if ((year % 4) == 0) {
-    YearState = "Leap Year";
-}
-else {
-    YearState = "Not a Leap Year";
-}
+    if (((year.value % 4) == 0) || ((year.value % 100) !== 0) && (year.value % 400) == 0) {
+        YearState.value = "Leap Year";
+    } else{
+        YearState.value = "Not a Leap Year";
+    }
+
 }
 </script>
 
-<style>
-</style>
+<style></style>
 
 <template>
-<input type="number" min="0" v-model="year" onkeydown="return event.key !== '-';">
-<h1>Welcome to {{ year }} year!</h1>
+    <input v-model="year" type="number" min="0" onkeydown="return event.key !== '-';">
+    <h1>Welcome to {{ year }} year!</h1>
 
-<button @click="Play()">Calculate</button>
-    <h1>the year is: {{ YearState }}</h1>
+    <button @click="Play">Calculate</button>
+    <h1>This is a {{ YearState }}.</h1>
 </template>
