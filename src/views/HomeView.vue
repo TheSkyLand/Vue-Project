@@ -1,9 +1,9 @@
 <template>
-
 </template>
 
-<script>
+<script setup>
+import ActiveButton from '@/components/ActiveButton.vue'
 </script>
 
-<style>
+<style lang="scss" scoped>
 </style>
